@@ -52,7 +52,34 @@ export class StudentCollection{
 
     }
 
-    
+    //Method to find a student by name and update their grades
+
+    updateStudentGrades(studentName,grade1,grade2,grade3){
+
+        for (let student of this.students) {
+            if(student.name.toUpperCase() == studentName.toUpperCase()){
+                student.grades = [grade1,grade2,grade3]
+                break;
+            }
+        }
+
+    }
+
+    //Method to calculate the average grade of a student
+
+    calculateAverageGrade(studentName){
+
+        let averageGrade = 0;
+        for (let student of this.students) {
+            if(student.name.toUpperCase() == studentName.toUpperCase()){
+                for(let i=0;i<student.grades.length;i++){
+                    averageGrade+=student.grades[i]
+                }
+                return averageGrade/student.grades.length
+            }
+        }
+
+    }
 
 
 

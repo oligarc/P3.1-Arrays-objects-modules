@@ -27,4 +27,12 @@ console.log(studentCollection)
  studentCollection.removeStudentByName("Oliver")
  console.log(studentCollection)
 
- 
+ //Checking the updateGrade, works fine
+
+ studentCollection.updateStudentGrades("John Doe",0,1,2);
+ console.log(studentCollection)
+
+  //Checking the averageGrade, works fine
+
+  let averageGrade = studentCollection.calculateAverageGrade("John Doe")
+  console.log(averageGrade)
