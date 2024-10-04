@@ -64,3 +64,20 @@ console.log(studentCollection)
   const topStudents = studentCollection.getTopStudents(90); //Had to create a const of this because it 
   //wasn't aplying correctly to the studentCollection itself
   console.log(topStudents)
+
+
+  //Checking the formatGrades to String
+
+  console.log("______________")
+  let prueba = studentCollection.formatGrades()
+  console.log(prueba)
+
+  //Checking the JSON Stringfy
+
+  let json = studentCollection.serializeStudents();
+  console.log(json)
+
+  //CHECKING the String JSON to JSON
+
+  let jsonagain = studentCollection.deserializeStudents(json);
+  console.log(jsonagain)

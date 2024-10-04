@@ -174,8 +174,35 @@ export class StudentCollection{
 
     formatGrades(){
 
-        
+        return this.students.map(student =>{
+            return `${student.name}: ${student.grades.join(', ')}`
+        });
 
+    }
+
+    //Method that filters students whose average grade is above 90
+
+    getHonorRollStudents(){
+
+        return this.students.filter(student =>{
+            const totalGrades = student.grades.reduce((sum,grade) =>sum+grade,0);
+            const averageGrade = totalGrades/student.grades.length;
+
+            return averageGrade>=90
+        });
+
+    }
+
+    //Method that converts the students array to a JSON string
+
+    serializeStudents(){
+        return JSON.stringify(this.students)
+    }
+
+    //Method that converts the JSON string into a students array
+
+    deserializeStudents(stringJSON){
+        return JSON.parse(stringJSON)
     }
 
 
