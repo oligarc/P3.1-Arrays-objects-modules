@@ -29,10 +29,38 @@ console.log(studentCollection)
 
  //Checking the updateGrade, works fine
 
- studentCollection.updateStudentGrades("John Doe",0,1,2);
- console.log(studentCollection)
+ //studentCollection.updateStudentGrades("John Doe",0,1,2);
+ //console.log(studentCollection)
 
   //Checking the averageGrade, works fine
 
   let averageGrade = studentCollection.calculateAverageGrade("John Doe")
   console.log(averageGrade)
+
+   //Checking the enrolledStudents, works fine
+
+   let enrolledStudents = studentCollection.getEnrolledStudents();
+   console.log(enrolledStudents)
+
+   //Checking the studentsAboveAge, works fine
+
+   let studentsAboveAge = studentCollection.getStudentsAboveAge(18)
+   console.log(studentsAboveAge)
+
+   //Checking the perfectStudent, works fine
+
+   console.log("PERFECT STUDENT: ")
+   let perfectStudent = studentCollection.getPerfectStudent();
+   console.log(perfectStudent)
+
+   //Checking the studentSummaries, works fine
+
+  let studentSummaries = studentCollection.getStudentSummaries();
+  console.log(studentSummaries)
+
+  //Checking the topStudents
+
+  console.log("TOP STUDENTS:")
+  const topStudents = studentCollection.getTopStudents(90); //Had to create a const of this because it 
+  //wasn't aplying correctly to the studentCollection itself
+  console.log(topStudents)

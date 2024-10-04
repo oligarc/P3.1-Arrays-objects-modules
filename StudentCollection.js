@@ -81,6 +81,105 @@ export class StudentCollection{
 
     }
 
+    //Method that returns an array of enrolled students
+
+    getEnrolledStudents(){
+
+        let enrolledStudents = []
+        for (const student of this.students) {
+            if(student.isEnrolled){
+                enrolledStudents.push(student);
+            }
+        }
+
+        return enrolledStudents;
+
+    }
+
+    //Method that return students older than a given age
+
+    getStudentsAboveAge(givenAge){
+
+        let studentsAboveAge=[]
+
+        for (const student of this.students) {
+            if(student.age > givenAge){
+                studentsAboveAge.push(student);
+            }
+        }
+
+        return studentsAboveAge;
+
+    }
+
+    //Method that return student with the highest average grade
+
+    getPerfectStudent(){
+
+        let perfectNote = 0;
+        let perfectStudent = null;
+
+        for (const student of this.students) {
+            let actualNote = 0;
+            for(let i=0;i<student.grades.length;i++){
+                actualNote+=student.grades[i];
+            }
+
+            if(actualNote>perfectNote){
+                perfectNote = actualNote;
+                perfectStudent = student;
+            }
+            
+        }
+
+        return perfectStudent;
+    }
+
+    //Method that maps the students in a summary object with name and average grade
+
+    getStudentSummaries(){
+
+        return this.students.map(student =>{
+            const totalGrades = student.grades.reduce((sum,grade)=>sum+grade,0); //I investigated and found reduce, 0 is the inicial value for the sum
+            const averageGrade = totalGrades/student.grades.length;
+
+            return{
+                name:student.name,
+                averageGrade : averageGrade
+            };
+        });
+
+    }
+
+    //Method that filters students passing a grade treshold
+
+    getTopStudents(gradeTreshold){
+
+        return this.students.filter(student =>{
+            const totalGrades = student.grades.reduce((sum,grade)=>sum+grade,0);
+            const averageGrade = totalGrades/student.grades.length;
+
+            return averageGrade>=gradeTreshold
+        });
+
+    }
+
+    //Method that filters enrolled students and returns an array of their names
+
+    getEnrolledStudentNames() {
+        return this.students.filter(student => student.isEnrolled).map(student => student.name);
+    }
+    
+    //Method that returns an array of string formatting each student's grades
+
+    formatGrades(){
+
+        
+
+    }
+
+
+
 
 
 
